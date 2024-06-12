@@ -30,7 +30,7 @@ extern "C"
 	BASLERPYLONWRAPPER_API void Init();
 
 	// Must be called for each camera, before any call to StartRecording()
-	BASLERPYLONWRAPPER_API void PrepareRecording(const char* pDeviceSN, const char* pVideoFilePath, double pFramesPerSecond = 60.0, uint32_t pQuality = 90);
+	BASLERPYLONWRAPPER_API void PrepareRecording(const char* pDeviceSN, const char* pVideoFilePath, uint32_t pQuality = 90);
 
 	// Recording of video happens in a thread and will never block the calling thread.
 	BASLERPYLONWRAPPER_API void StartRecording();

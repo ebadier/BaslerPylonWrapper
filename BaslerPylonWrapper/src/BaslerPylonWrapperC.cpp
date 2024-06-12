@@ -32,11 +32,11 @@ void Terminate()
 	sWrapperInstance = NULL;
 }
 
-void PrepareRecording(const char* pDeviceSN, const char* pVideoFilePath, double pFramesPerSecond, uint32_t pQuality)
+void PrepareRecording(const char* pDeviceSN, const char* pVideoFilePath, uint32_t pQuality)
 {
 	if (sWrapperInstance != NULL)
 	{
-		sWrapperInstance->PrepareRecording(pDeviceSN, pVideoFilePath, pFramesPerSecond, pQuality);
+		sWrapperInstance->PrepareRecording(pDeviceSN, pVideoFilePath, pQuality);
 	}
 }
 

@@ -46,7 +46,7 @@ namespace PylonWrapper
 
 		inline const char* GetErrors()const { return _errorsLog.c_str(); }
 		inline bool HasError()const { return _hasError; }
-		void PrepareRecording(const char* pDeviceSN, const char* pVideoFilePath, double pFramesPerSecond = 60.0, uint32_t pQuality = 90);
+		void PrepareRecording(const char* pDeviceSN, const char* pVideoFilePath, uint32_t pQuality = 90);
 		void StartRecording();
 		inline bool IsRecording()const { return _isRecording; }
 		void StopRecording();

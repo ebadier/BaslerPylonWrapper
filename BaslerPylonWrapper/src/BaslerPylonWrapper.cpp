@@ -72,7 +72,7 @@ namespace PylonWrapper
 		Pylon::PylonTerminate();
 	}
 
-	void BaslerPylonWrapper::PrepareRecording(const char* pDeviceSN, const char* pVideoFilePath, double pFramesPerSecond, uint32_t pQuality)
+	void BaslerPylonWrapper::PrepareRecording(const char* pDeviceSN, const char* pVideoFilePath, uint32_t pQuality)
 	{
 		try
 		{
@@ -131,6 +131,7 @@ namespace PylonWrapper
 			auto& camerasParams = camera->GetNodeMap();
 			Pylon::CIntegerParameter width(camerasParams, "Width");
 			Pylon::CIntegerParameter height(camerasParams, "Height");
+			Pylon::CFloatParameter frameRate(camerasParams, "AcquisitionFrameRate");
 			Pylon::CEnumParameter pixelFormat(camerasParams, "PixelFormat");
 			// Map the pixelType
 			Pylon::CPixelTypeMapper pixelTypeMapper(&pixelFormat);
@@ -140,7 +141,7 @@ namespace PylonWrapper
 				(uint32_t)width.GetValue(),
 				(uint32_t)height.GetValue(),
 				pixelType,
-				pFramesPerSecond,
+				frameRate.GetValue(),
 				pQuality);
 			// Open the video file to write
 			videoWriter->Open(pVideoFilePath);
